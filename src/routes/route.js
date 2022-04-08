@@ -26,11 +26,36 @@ router.get('/user-profile/:abcd', function(req, res) {
 
 router.get('/movies',function(req,res){ 
 
-  res.send(array)queueMicrotask
+  res.send(array)
 });
 
+//**************************************-------------------******************************** */
+
+
+router.get('/hello',function(req,res){ 
+  let a = [1,2,3,4,5,7,8,9]
+  count = a.length,
+  missing = []
+  for (let i = 1; i <= count; i++) {
+    if (a.indexOf(i) === -1) {
+     
+      missing.push(i)
+    }
+  }
+  console.log(missing)
+  res.send(missing)
+});
+
+
+
+
+
+
+
+
+
 // Create an API GET /movies/:indexNumber (For example GET /movies/1 is a valid request and it should return the movie in your array at index 1). You can define an array of movies again in your api
-// Handle a scenario in problem 2 where if the index is greater than the valid maximum value a message is returned that tells the user to use a valid index in an error message.
+// Handle a scenario in problem 2 where sif the index is greater than the valid maximum value a message is returned that tells the user to use a valid index in an error message.
 
 
 router.get('/movies/:indexNumber',function(req,res){

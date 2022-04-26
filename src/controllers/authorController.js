@@ -13,6 +13,23 @@ const createAuthor = async (req,res) => {
     }
 }
 
+// Creat Blog by Moulesh_Chavan
+const createBlogs = async (req,res) => {
+        try{
+            let data = req.body
+            if(!await author.findById(req.body.authorId)) 
+            return res.status(208).send({status: false, msg: "Incorrect Author Id"})
+            if(await blog.exists(data)) 
+            return res.status(208).send({status: false, msg: "Blog already present"})
+            let created = await blog.create(data)
+            res.status(201).send({status: true, data: created})
+        }
+        catch(err){
+            console.log(err.message)
+            res.status(500).send({status: false, msg: err.message})
+        }
+    }
+//__________________________________________________*************______________________________________________________________
 //createBlog API by Sandeep
 // const createBlogs = async (req,res) => {
 //     try{
@@ -46,6 +63,7 @@ const getBlogs = async (req,res) => {
     }
 }
 
-module.exports = {createAuthor, getBlogs}
+module.exports = {createAuthor, getBlogs,createBlogs}
+
 
 // updateBlogs, deleteBlogs, deleteBlogsQP

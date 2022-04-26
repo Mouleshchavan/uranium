@@ -12,7 +12,7 @@ const authorSchema = mongoose.Schema({
         unique: true,
         validate: {
             validator: function(v) {
-                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);//  /^[A-Za-z0-9._]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/
             },
             message: "Please enter a valid email"
         },
@@ -30,8 +30,8 @@ const blogSchema = mongoose.Schema({
     subcategory: {type: [String]}, 
     isDeleted: {type: Boolean, default: false}, 
     isPublished: {type: Boolean, default: false},
-    publishedAt: {type: Date}, 
-    deletedAt: {type: Date}
+    publishedAt: {type: Date, default: Date.now()}, 
+    deletedAt: {type: Date, default: Date.now()}
 }, { timestamps: true })
 
 const author = mongoose.model('Author', authorSchema) //authors

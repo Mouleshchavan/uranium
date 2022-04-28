@@ -38,4 +38,3 @@ const author = mongoose.model('Author', authorSchema) //authors
 const blog = mongoose.model('Blog', blogSchema) //blogs
 
 module.exports = {author, blog}
-

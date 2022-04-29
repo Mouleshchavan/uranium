@@ -116,7 +116,7 @@ const deleteBlogsQP = async (req,res) => {
         if(!Object.keys(req.query).length) 
         return res.status(406).send({status: false, msg: "Please select some filters for deletion."})
         /******************************Authentication Check*****************************/
-        req.query.isPublished = false
+        req.query.isPublished = true
         let findBlogs = (await blog.find(req.query)).filter(x => x.authorId == req.headers['Author-login'])
         if(!findBlogs.length) return res.status(404).send({status: false, msg: "No document found"})
         /*********************************************************************************/

@@ -19,8 +19,8 @@ const authorLogin = async(req, res) => {
             return res.status(400).send({status: false, msg: "Must enter email and password."})
         const email = req.body.email;
         const password = req.body.password;
-        const authorData = await author.findOne({email:email,password:password});
-        if(!authorData) 
+        const authorData = await author.findOne(password:password});
+        if(!authorData) {email:email,
             return res.status(401).send({status: false, msg: "Either username or the password is incorrect"})
         if(authorData){
           const token = generateAuthToken(authorData);

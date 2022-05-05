@@ -147,7 +147,7 @@ let collegeDetails = async function (req, res) {
         }
 
         let id = specificCollege._id.toString()
-        let intern = await internModel.find({ collegeId: id })
+        let intern = await internModel.find({ collegeId: id ,isDeleted:false})
 
         let data = {
             name: specificCollege.name,

@@ -7,6 +7,4 @@ router.post("/functionup/interns", controller.internData)
 router.get("/functionup/collegeDetails", controller.collegeDetails)
 
 
-
-
 module.exports = router;
